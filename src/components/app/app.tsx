@@ -37,9 +37,8 @@ const App = () => {
         <Routes location={backgroundLocation || location}>
           <Route path='/' element={<AppLayout />}>
             <Route index element={<ConstructorPage />} />
-            <Route path='feed' element={<Feed />}>
-              <Route path=':number' element={<OrderInfo />} />
-            </Route>
+            <Route path='feed' element={<Feed />} />
+            <Route path='feed/:number' element={<OrderInfo />} />
             <Route
               path='login'
               element={
@@ -97,7 +96,7 @@ const App = () => {
               path='/ingredients/:id'
               element={
                 <Modal
-                  title='IngredientDetails'
+                  title='Детали ингредиента'
                   onClose={() => navigate(backgroundLocation)}
                 >
                   <IngredientDetails />
