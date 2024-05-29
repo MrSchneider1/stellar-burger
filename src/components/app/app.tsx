@@ -31,6 +31,11 @@ const App = () => {
     dispatch(getUser());
   }, [dispatch]);
 
+  const onCloseProfileOrder = () => {
+    navigate(backgroundLocation);
+    
+  }
+
   return (
     <>
       <div className={styles.app}>
