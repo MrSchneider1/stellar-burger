@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import {
   getIsAuthCheckedSelector,
   registerUser
-} from '../../services/slices/userSlice';
+} from '../../services/slices/userSlice/userSlice';
 
 export const Register: FC = () => {
   const [userName, setUserName] = useState('');

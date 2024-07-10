@@ -15,7 +15,7 @@ import styles from './app.module.css';
 import { AppLayout, IngredientDetails, Modal, OrderInfo } from '@components';
 import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
-import { getUser } from '../../services/slices/userSlice';
+import { getUser } from '../../services/slices/userSlice/userSlice';
 import { getCookie } from '../../utils/cookie';
 import { ProtectedRoute } from '../protected-route';
 
@@ -33,8 +33,7 @@ const App = () => {
 
   const onCloseProfileOrder = () => {
     navigate(backgroundLocation);
-    
-  }
+  };
 
   return (
     <>

@@ -8,12 +8,12 @@ import {
   getLoadingOrderSelector,
   getOrderSelector,
   orderBurger
-} from '../../services/slices/orderSlice';
+} from '../../services/slices/orderSlice/orderSlice';
 import {
   clearIngredients,
   getConstructorItemsSelector
-} from '../../services/slices/constructorItemsSlice';
-import { getUserDataSelector } from '../../services/slices/userSlice';
+} from '../../services/slices/constructorItemsSlice/constructorItemsSlice';
+import { getUserDataSelector } from '../../services/slices/userSlice/userSlice';
 
 export const BurgerConstructor: FC = () => {
   /** TODO: взять переменные constructorItems, orderRequest и orderModalData из стора */

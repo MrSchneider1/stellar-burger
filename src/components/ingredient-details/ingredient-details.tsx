@@ -6,7 +6,7 @@ import { useSelector } from '../../services/store';
 import {
   getIngredientsSelector,
   getLoadingIngredientsSelector
-} from '../../services/slices/ingredientsSlice';
+} from '../../services/slices/ingredientsSlice/ingredientsSlice';
 
 export const IngredientDetails: FC = () => {
   /** TODO: взять переменную из стора */

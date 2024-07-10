@@ -9,7 +9,7 @@ import { FC, useEffect } from 'react';
 import {
   getIngredients,
   getLoadingIngredientsSelector
-} from '../../services/slices/ingredientsSlice';
+} from '../../services/slices/ingredientsSlice/ingredientsSlice';
 
 export const ConstructorPage: FC = () => {
   const isIngredientsLoading = useSelector(getLoadingIngredientsSelector);

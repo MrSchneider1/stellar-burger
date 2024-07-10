@@ -4,7 +4,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import {
   getIsAuthCheckedSelector,
   getUserDataSelector
-} from '../../services/slices/userSlice';
+} from '../../services/slices/userSlice/userSlice';
 
 type ProtectedRouteProps = {
   children: React.ReactElement;

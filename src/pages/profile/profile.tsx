@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from '../../services/store';
 import {
   getUserDataSelector,
   updateUserData
-} from '../../services/slices/userSlice';
+} from '../../services/slices/userSlice/userSlice';
 
 export const Profile: FC = () => {
   /** TODO: взять переменную из стора */

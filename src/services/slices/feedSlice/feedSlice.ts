@@ -12,7 +12,7 @@ interface FeedSliceState {
   error: string | null;
 }
 
-const initialState: FeedSliceState = {
+export const initialState: FeedSliceState = {
   orders: [],
   orderModalData: [],
   profileOrders: [],

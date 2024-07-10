@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction, nanoid } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
 
-interface ConstructorItemsSliceState {
+export interface ConstructorItemsSliceState {
   constructorItems: {
     bun: TConstructorIngredient | null;
     ingredients: TConstructorIngredient[];
   };
 }
 
-const initialState: ConstructorItemsSliceState = {
+export const initialState: ConstructorItemsSliceState = {
   constructorItems: {
     bun: null,
     ingredients: []

@@ -5,8 +5,11 @@ import { useDispatch, useSelector } from '../../services/store';
 import {
   getOrders,
   getProfileOrdersSelector
-} from '../../services/slices/feedSlice';
-import { getIngredients, getIngredientsSelector } from '../../services/slices/ingredientsSlice';
+} from '../../services/slices/feedSlice/feedSlice';
+import {
+  getIngredients,
+  getIngredientsSelector
+} from '../../services/slices/ingredientsSlice/ingredientsSlice';
 
 export const ProfileOrders: FC = () => {
   /** TODO: взять переменную из стора */
@@ -14,15 +17,13 @@ export const ProfileOrders: FC = () => {
   const dispatch = useDispatch();
   const ingredients: TIngredient[] = useSelector(getIngredientsSelector);
 
-
   useEffect(() => {
-    if(!ingredients.length) {
+    if (!ingredients.length) {
       dispatch(getIngredients());
-      console.log(1)
+      console.log(1);
     }
-    console.log(ingredients, orders)
+    console.log(ingredients, orders);
     dispatch(getOrders());
-
   }, [dispatch]);
 
   return <ProfileOrdersUI orders={orders} />;

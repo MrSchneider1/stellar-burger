@@ -9,8 +9,11 @@ import {
   getFeedSelector,
   getOrderByNumber,
   getOrderModalDataSelector
-} from '../../services/slices/feedSlice';
-import { getIngredients, getIngredientsSelector } from '../../services/slices/ingredientsSlice';
+} from '../../services/slices/feedSlice/feedSlice';
+import {
+  getIngredients,
+  getIngredientsSelector
+} from '../../services/slices/ingredientsSlice/ingredientsSlice';
 
 export const OrderInfo: FC = () => {
   /** TODO: взять переменные orderData и ingredients из стора */
@@ -25,13 +28,13 @@ export const OrderInfo: FC = () => {
   useEffect(() => {
     if (id) {
       const order: TOrder | undefined = data.find((o) => o.number === id);
-      if (order) { 
+      if (order) {
         setOrderData(order);
       } else {
         dispatch(getOrderByNumber(id));
         setOrderData(dataModal);
-        }
       }
+    }
   }, [dispatch, dataModal, id]);
 
   /* Готовим данные для отображения */

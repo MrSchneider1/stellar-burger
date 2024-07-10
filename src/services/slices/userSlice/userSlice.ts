@@ -6,10 +6,28 @@ import {
   TLoginData,
   updateUserApi,
   getUserApi
-} from '@api';
+} from '../../../utils/burger-api';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
-import { deleteCookie, setCookie } from '../../utils/cookie';
+import { deleteCookie, setCookie } from '../../../utils/cookie';
+
+interface TUserState {
+  isAuthChecked: boolean;
+  loginUserRequest: boolean;
+  loginUserError: string | null | undefined;
+  isAuthenticated: boolean;
+  userData: TUser | null;
+  logoutUserError: string | null | undefined;
+}
+
+export const initialState: TUserState = {
+  isAuthChecked: false,
+  loginUserRequest: false,
+  loginUserError: null,
+  isAuthenticated: false,
+  userData: null,
+  logoutUserError: null
+};
 
 export const registerUser = createAsyncThunk(
   'user/registerUser',
@@ -55,24 +73,6 @@ export const logoutUser = createAsyncThunk('user/logout', async () => {
   localStorage.removeItem('refreshToken');
   deleteCookie('accessToken');
 });
-
-interface TUserState {
-  isAuthChecked: boolean;
-  loginUserRequest: boolean;
-  loginUserError: string | null | undefined;
-  isAuthenticated: boolean;
-  userData: TUser | null;
-  logoutUserError: string | null | undefined;
-}
-
-const initialState: TUserState = {
-  isAuthChecked: false,
-  loginUserRequest: false,
-  loginUserError: null,
-  isAuthenticated: false,
-  userData: null,
-  logoutUserError: null
-};
 
 export const userSlice = createSlice({
   name: 'user',
