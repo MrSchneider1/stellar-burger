@@ -1,14 +1,39 @@
 import { FC, memo } from 'react';
 import { BurgerConstructorElementUI } from '@ui';
 import { BurgerConstructorElementProps } from './type';
+import { useDispatch, useSelector } from '../../services/store';
+import {
+  getConstructorItemsIngredientsSelector,
+  replaceIngredients
+} from '../../services/slices/constructorItemsSlice/constructorItemsSlice';
 
 export const BurgerConstructorElement: FC<BurgerConstructorElementProps> = memo(
-  ({ ingredient, index, totalItems }) => {
-    const handleMoveDown = () => {};
+  ({ ingredient, index, totalItems, dataCy }) => {
+    const constructorIngredients = useSelector(
+      getConstructorItemsIngredientsSelector
+    );
+    const dispatch = useDispatch();
+    const handleMoveDown = () => {
+      const updatedIngredients = [...constructorIngredients];
+      const currentItem = updatedIngredients[index];
+      updatedIngredients[index] = updatedIngredients[index + 1];
+      updatedIngredients[index + 1] = currentItem;
+      dispatch(replaceIngredients(updatedIngredients));
+    };
 
-    const handleMoveUp = () => {};
+    const handleMoveUp = () => {
+      const updatedIngredients = [...constructorIngredients];
+      const currentItem = updatedIngredients[index];
+      updatedIngredients[index] = updatedIngredients[index - 1];
+      updatedIngredients[index - 1] = currentItem;
+      dispatch(replaceIngredients(updatedIngredients));
+    };
 
-    const handleClose = () => {};
+    const handleClose = () => {
+      const updatedIngredients = [...constructorIngredients];
+      updatedIngredients.splice(index, 1);
+      dispatch(replaceIngredients(updatedIngredients));
+    };
 
     return (
       <BurgerConstructorElementUI
@@ -18,6 +43,7 @@ export const BurgerConstructorElement: FC<BurgerConstructorElementProps> = memo(
         handleMoveUp={handleMoveUp}
         handleMoveDown={handleMoveDown}
         handleClose={handleClose}
+        dataCy={dataCy}
       />
     );
   }

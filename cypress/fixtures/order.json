@@ -1,0 +1,7 @@
+{
+    "success": true,
+    "name": "Название заказа",
+    "order": {
+        "number": "2105"
+    }
+}
