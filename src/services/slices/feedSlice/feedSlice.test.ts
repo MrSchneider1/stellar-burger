@@ -1,5 +1,10 @@
 import { expect, test, describe } from '@jest/globals';
-import feedSliceReducer, { initialState, getFeed, getOrders, getOrderByNumber } from './feedSlice';
+import feedSliceReducer, {
+  initialState,
+  getFeed,
+  getOrders,
+  getOrderByNumber
+} from './feedSlice';
 import { TFeedsResponse } from '@api';
 import { TOrder } from '@utils-types';
 
@@ -29,26 +34,26 @@ const mockFeed: TFeedsResponse = {
   totalToday: 5
 };
 
-const mockProfileOrders: TOrder[] = [ 
-    {
-    _id: "1",
-    status: "done",
-    name: "Burger",
-    createdAt: "2023-07-01T12:00:00Z",
-    updatedAt: "2023-07-01T12:30:00Z",
+const mockProfileOrders: TOrder[] = [
+  {
+    _id: '1',
+    status: 'done',
+    name: 'Burger',
+    createdAt: '2023-07-01T12:00:00Z',
+    updatedAt: '2023-07-01T12:30:00Z',
     number: 1001,
-    ingredients: ["bun", "patty", "lettuce", "tomato", "cheese"]
-    },
-    {
-    _id: "2",
-    status: "preparing",
-    name: "Pizza",
-    createdAt: "2023-07-01T12:10:00Z",
-    updatedAt: "2023-07-01T12:40:00Z",
+    ingredients: ['bun', 'patty', 'lettuce', 'tomato', 'cheese']
+  },
+  {
+    _id: '2',
+    status: 'preparing',
+    name: 'Pizza',
+    createdAt: '2023-07-01T12:10:00Z',
+    updatedAt: '2023-07-01T12:40:00Z',
     number: 1002,
-    ingredients: ["dough", "tomato sauce", "cheese", "pepperoni", "olives"]
-    }
-]
+    ingredients: ['dough', 'tomato sauce', 'cheese', 'pepperoni', 'olives']
+  }
+];
 
 describe('feed reducer', () => {
   test('initializes correctly', () => {
@@ -82,7 +87,10 @@ describe('feed reducer', () => {
   });
 
   test('test getFeed rejected', () => {
-    const action = { type: getFeed.rejected.type, error: {message: 'failed to fetch data'} };
+    const action = {
+      type: getFeed.rejected.type,
+      error: { message: 'failed to fetch data' }
+    };
 
     const state = feedSliceReducer(initialState, action);
 
@@ -91,7 +99,10 @@ describe('feed reducer', () => {
   });
 
   test('test getOrders fulfilled', () => {
-    const action = { type: getOrders.fulfilled.type, payload: mockProfileOrders };
+    const action = {
+      type: getOrders.fulfilled.type,
+      payload: mockProfileOrders
+    };
 
     const state = feedSliceReducer(initialState, action);
 
@@ -114,7 +125,10 @@ describe('feed reducer', () => {
   });
 
   test('test getOrders rejected', () => {
-    const action = { type: getOrders.rejected.type, error: {message: 'failed to fetch data'} };
+    const action = {
+      type: getOrders.rejected.type,
+      error: { message: 'failed to fetch data' }
+    };
 
     const state = feedSliceReducer(initialState, action);
 
@@ -123,7 +137,10 @@ describe('feed reducer', () => {
   });
 
   test('test getOrderByNumber fulfilled', () => {
-    const action = { type: getOrderByNumber.fulfilled.type, payload: { orders: [mockProfileOrders[0]] } };
+    const action = {
+      type: getOrderByNumber.fulfilled.type,
+      payload: { orders: [mockProfileOrders[0]] }
+    };
 
     const state = feedSliceReducer(initialState, action);
 
@@ -146,7 +163,10 @@ describe('feed reducer', () => {
   });
 
   test('test getOrderByNumber rejected', () => {
-    const action = { type: getOrderByNumber.rejected.type, error: {message: 'failed to fetch data'} };
+    const action = {
+      type: getOrderByNumber.rejected.type,
+      error: { message: 'failed to fetch data' }
+    };
 
     const state = feedSliceReducer(initialState, action);
 

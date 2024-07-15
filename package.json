@@ -112,6 +112,8 @@
       "^@slices": "<rootDir>/src/services/slices",
       "^@selectors": "<rootDir>/src/services/selectors"
     },
+    "collectCoverage": true, 
+    "coverageDirectory": "<rootDir>/coverage",
     "testEnvironment": "jsdom"
   }
 }

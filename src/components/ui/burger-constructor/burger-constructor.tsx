@@ -18,7 +18,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
   onOrderClick,
   closeOrderModal
 }) => (
-  <section className={styles.burger_constructor}>
+  <section data-cy='constructor' className={styles.burger_constructor}>
     {constructorItems.bun ? (
       <div data-cy='top-bun' className={`${styles.element} mb-4 mr-4`}>
         <ConstructorElement
@@ -45,6 +45,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
               index={index}
               totalItems={constructorItems.ingredients.length}
               key={item.id}
+              dataCy={`ingredient ${index}`}
             />
           )
         )
